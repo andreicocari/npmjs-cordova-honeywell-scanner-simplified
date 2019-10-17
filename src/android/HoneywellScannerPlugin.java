@@ -38,10 +38,8 @@ public class HoneywellScannerPlugin extends CordovaPlugin implements BarcodeRead
                 manager = aidcManager;
                 barcodeReader = manager.createBarcodeReader();
                 if (barcodeReader != null) {
-                    barcodeReader.addBarcodeListener(HoneywellScannerPlugin.this);
-
                     barcodeReader.setProperty(BarcodeReader.PROPERTY_UPC_E_EXPAND_TO_UPC_A, true);
-
+                    barcodeReader.addBarcodeListener(HoneywellScannerPlugin.this);
                     try {
                         barcodeReader.claim();
                     } catch (ScannerUnavailableException e) {
